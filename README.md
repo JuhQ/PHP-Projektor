@@ -1,5 +1,5 @@
 This is a simple PHP project starter kit which I use as a base for new projects.
-It's not complete, nor it will not be complete. Please feel free to fork.
+It's not complete, nor will it be complete. Please feel free to fork.
 
 This project follows a simple naming syntax, which allows for quick code iteration and development.
 
