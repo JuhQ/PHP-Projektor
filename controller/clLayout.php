@@ -14,7 +14,12 @@ class clLayout {
 		// if ajax call, don't print layout
 		if (clFunctions::isAjax())
 		{
-			$class->view();
+			// check for class and view method
+			if($class !== false && method_exists($class, "view")) {
+				$class->view();
+			}
+
+			// TODO: if no class or view method, what now?
 			return true;
 		}
 		
@@ -27,8 +32,13 @@ class clLayout {
 		// define site title
 		$arr['title'] = $title;
 		
+		$content = false;
+		if(method_exists($class, "view")) {
+			$content = array("content" => $class);
+		}
+
 		// requested page fragment
-		$arr['content'] = clTemplates::get($template, array("content" => $class));
+		$arr['content'] = clTemplates::get($template, $content);
 		
 		// main page which will include the page fragmen
 		echo clTemplates::get(clConfig::get("default_template"), $arr);

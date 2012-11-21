@@ -36,6 +36,11 @@ class uiModule {
 			$this->template = get_class($this);
 		}
 		
-		return clLayout::view(new $this->object(), $this->title, $this->template);
+		$object = false;
+		if(class_exists($this->object)) {
+			$object = new $this->object();
+		}
+
+		return clLayout::view($object, $this->title, $this->template);
 	}
 }
