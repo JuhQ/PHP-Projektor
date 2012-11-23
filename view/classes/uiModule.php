@@ -37,7 +37,8 @@ class uiModule {
 		}
 		
 		$object = false;
-		if(class_exists($this->object)) {
+		if(class_exists($this->object))
+		{
 			$object = new $this->object();
 		}
 

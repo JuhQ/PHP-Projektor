@@ -33,7 +33,8 @@ class clLayout {
 		$arr['title'] = $title;
 		
 		$content = false;
-		if(method_exists($class, "view")) {
+		if(method_exists($class, "view"))
+		{
 			$content = array("content" => $class);
 		}
 
